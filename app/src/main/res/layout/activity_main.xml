@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.MainActivity">
+
+   <include
+       android:id="@+id/mActionBar"
+       layout="@layout/layout_action_bar" />
+
+   <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+       android:id="@+id/refreshLayout"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.5"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/mActionBar">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/mRecyclerHome"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+       tools:listitem="@layout/item_news_list" />
+
+   <LinearLayout
+       android:id="@+id/mCardShimmerHolder"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:background="@color/white"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.5"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent">
+
+      <com.facebook.shimmer.ShimmerFrameLayout
+          android:id="@+id/shimmer_view_container"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          app:shimmer_auto_start="true">
+
+         <include layout="@layout/shimmer_layout_card" />
+
+      </com.facebook.shimmer.ShimmerFrameLayout>
+   </LinearLayout>
+
+   <LinearLayout
+       android:id="@+id/mListShimmerHolder"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:background="@color/white"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.5"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent">
+
+      <com.facebook.shimmer.ShimmerFrameLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          app:shimmer_auto_start="true">
+
+         <include layout="@layout/shimmer_layout_list" />
+
+      </com.facebook.shimmer.ShimmerFrameLayout>
+   </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+   </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
